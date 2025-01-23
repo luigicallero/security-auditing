@@ -1,61 +1,66 @@
-### Install and update Foundry
-```
-foundryup
-```
-### Other important tools
-* Phind - AI searcher or Chatgpt
-* Pheerana - Q&A for Web3
-* Ethereum stack exchange
+## Foundry
 
-### Updating the amount of fuzz test
-Use the link in foundry.toml file:
-https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-look for fuzz parameter, copy paste the stanza into foundry.toml and update the number of "runs":
+Foundry consists of:
 
-```
-[fuzz]
-runs = 600
-max_test_rejects = 65536
-seed = '0x3e8'
-dictionary_weight = 40
-include_storage = true
-include_push_bytes = true
+-   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+-   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+-   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+-   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+
+## Documentation
+
+https://book.getfoundry.sh/
+
+## Usage
+
+### Build
+
+```shell
+$ forge build
 ```
 
-### Checking storage used by variables with forge
+### Test
 
-```
-forge inspect CONTRACT_NAME storage
+```shell
+$ forge test
 ```
 
-Output - you can see number and number2 but number3 is not stored in the storage, because they are part of the bytecode
+### Format
+
+```shell
+$ forge fmt
 ```
-{
-  "storage": [
-    {
-      "astId": 3,
-      "contract": "src/Counter.sol:Counter",
-      "label": "number",
-      "offset": 0,
-      "slot": "0",
-      "type": "t_uint256"
-    },
-    {
-      "astId": 5,
-      "contract": "src/Counter.sol:Counter",
-      "label": "number2",
-      "offset": 0,
-      "slot": "1",
-      "type": "t_uint256"
-    }
-  ],
-  "types": {
-    "t_uint256": {
-      "encoding": "inplace",
-      "label": "uint256",
-      "numberOfBytes": "32"
-    }
-  }
-}
+
+### Gas Snapshots
+
+```shell
+$ forge snapshot
+```
+
+### Anvil
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
 ```
