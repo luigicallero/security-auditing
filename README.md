@@ -1,4 +1,5 @@
 Following along with Patric C in Cyfrin:
+[Cyfrin Security and Auditing Full Course](https://github.com/Cyfrin/security-and-auditing-full-course-s23)
 
 Encoding Section comes from this repo:
 https://github.com/PatrickAlphaC/hardhat-nft-fcc/blob/main/contracts/sublesson/Encoding.sol
