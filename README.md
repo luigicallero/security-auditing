@@ -38,3 +38,33 @@ https://blog.trailofbits.com/2023/08/14/can-you-pass-the-rekt-test/
 Issue #2 - No documentation available. Answer to all questions in RekTest are answered with No
 
 If documentation is not provided, audit / security research can NOT be conducted.
+
+## Minimal Requirements for an Auditing
+https://github.com/Cyfrin/security-and-auditing-full-course-s23/blob/main/minimal-onboarding-questions.md
+
+## Usefull Tools
+### CLOC - Count lines of code
+
+Installation:
+```bash
+npm i cloc
+```
+Execute
+```bash
+cloc ./src/
+```
+Expected Output:
+```bash
+       3 text files.
+       3 unique files.                              
+       0 files ignored.
+
+github.com/AlDanial/cloc v 2.04  T=0.03 s (92.4 files/s, 5422.6 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Solidity                         3             37             62             77
+-------------------------------------------------------------------------------
+SUM:                             3             37             62             77
+-------------------------------------------------------------------------------
+```

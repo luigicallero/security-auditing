@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@openzeppelin/contracts": "^5.2.0"
+    "@openzeppelin/contracts": "^5.2.0",
+    "cloc": "^2.4.0-cloc"
   }
 }
