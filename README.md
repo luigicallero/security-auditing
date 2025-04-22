@@ -68,3 +68,14 @@ Solidity                         3             37             62             77
 SUM:                             3             37             62             77
 -------------------------------------------------------------------------------
 ```
+
+
+## Generating a Report:
+
+```bash
+pandoc report.md -o report.pdf --from markdown --template=eisvogel --listings
+```
+
+## Docker Containers
+
+Optional or VM - I will be using a VM
