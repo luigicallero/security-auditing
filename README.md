@@ -69,6 +69,48 @@ SUM:                             3             37             62             77
 -------------------------------------------------------------------------------
 ```
 
+### Slither
+
+Slither is a static analysis framework for Solidity that detects vulnerabilities, enforces coding standards, and provides code optimization suggestions.
+
+Installation:
+```bash
+pip3 install slither-analyzer
+```
+
+Basic usage:
+```bash
+# Analyze a single contract
+slither src/Counter.sol
+
+# Analyze entire project
+slither .
+
+# Generate detailed report
+slither . --print human-summary
+
+# Check for specific vulnerabilities
+slither . --detect reentrancy,unchecked-transfer
+```
+
+Common flags:
+- `--print human-summary`: Human-readable summary
+- `--detect`: Specify vulnerability types to check
+- `--exclude`: Exclude specific contracts or directories
+- `--json`: Output results in JSON format
+
+Slither also offers a way to remove results:
+* By adding to the base code //slither-disable-next-line DETECTER_NAME before the issue:
+```bash
+// slither-disable-next-line arbitrary-send-eth
+(bool success,) = feedAddress.call{value: feesToWithdraw} ("")
+```
+* Check here for more [options](https://github.com/crytic/slither/wiki/Usage)
+
+* Or remove the check of libraries:
+```bash
+slither . --exclude-dependencies
+```
 
 ## Generating a Report:
 
