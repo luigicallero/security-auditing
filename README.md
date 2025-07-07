@@ -112,6 +112,109 @@ Slither also offers a way to remove results:
 slither . --exclude-dependencies
 ```
 
+## Test Quality - Forge Coverage
+
+Forge coverage helps measure how thoroughly your smart contract code is being tested. It analyzes which parts of your code are executed during tests and provides detailed metrics.
+
+### Running Coverage Analysis
+
+Basic coverage check:
+```bash
+forge coverage
+```
+
+Example output:
+```bash
++------------------------+----------------+----------------+----------------+----------------+
+| File                   | % Lines        | % Statements   | % Branches     | % Functions    |
++------------------------+----------------+----------------+----------------+----------------+
+| src/PuppyRaffle.sol    | 92.31% (72/78) | 93.18% (82/88) | 83.33% (30/36) | 100% (12/12)   |
++------------------------+----------------+----------------+----------------+----------------+
+```
+
+### Coverage Metrics Explained
+
+- **Lines**: Percentage of code lines executed (92.31%)
+- **Statements**: Percentage of code statements run (93.18%)
+- **Branches**: Percentage of decision paths taken (83.33%)
+- **Functions**: Percentage of functions called (100%)
+
+### Advanced Coverage Commands
+
+Generate HTML report:
+```bash
+forge coverage --report lcov
+genhtml lcov.info -o coverage/
+```
+
+Filter specific contracts:
+```bash
+forge coverage --contracts "src/MyContract.sol"
+```
+
+Show uncovered lines:
+```bash
+forge coverage --report debug
+```
+
+### Coverage Best Practices
+
+Target metrics:
+- Line/Statement coverage: >90%
+- Branch coverage: >85%
+- Function coverage: 100%
+
+Focus on testing:
+- Fund transfer functions
+- Access controls
+- State changes
+- Error handling
+
+Common coverage gaps:
+- Error conditions
+- Edge cases
+- Multiple modifier combinations
+- Complex conditionals
+
+### Coverage Limitations
+
+1. High coverage doesn't guarantee bug-free code:
+   - Only shows execution, not correctness
+   - May miss edge cases
+   - Doesn't verify business logic
+
+2. Coverage blind spots:
+   - Unreachable code
+   - Emergency functions
+   - Assembly code
+   - External library code
+
+### CI Integration
+
+Add to your CI pipeline:
+```yaml
+- name: Coverage Check
+  run: forge coverage --min-coverage 90
+```
+
+### Troubleshooting Low Coverage
+
+1. Review uncovered code:
+   ```bash
+   forge coverage --report debug
+   ```
+
+2. Common fixes:
+   - Add missing test cases
+   - Remove dead code
+   - Check compiler settings
+   - Verify dependencies
+
+### Resources
+
+- [Foundry Coverage Documentation](https://book.getfoundry.sh/reference/forge/forge-coverage)
+- [Coverage Best Practices](https://ethereum.org/en/developers/tutorials/solidity-coverage/)
+
 ## Generating a Report:
 
 ```bash
